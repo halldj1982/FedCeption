@@ -45,7 +45,7 @@ class WordTokenizer(BaseTokenizer):
 
 
 class SentenceTokenizer(BaseTokenizer):
-    """NLTK's sentence tokenizer (currently PunkSentenceTokenizer).
+    """NLTK's sentence tokenizer (currently PunktSentenceTokenizer).
     Uses an unsupervised algorithm to build a model for abbreviation words,
     collocations, and words that start sentences,
     then uses that to find sentence boundaries.
@@ -55,6 +55,7 @@ class SentenceTokenizer(BaseTokenizer):
     def tokenize(self, text):
         '''Return a list of sentences.'''
         return nltk.tokenize.sent_tokenize(text)
+
 
 #: Convenience function for tokenizing sentences
 sent_tokenize = SentenceTokenizer().itokenize

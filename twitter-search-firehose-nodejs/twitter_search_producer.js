@@ -103,17 +103,19 @@ function twitterStreamProducer(firehose) {
       }
      
       var tweets = data.statuses;
-
+      
       for (const tweet of tweets) {
+        log.info("Tweet Created at = " + tweet.created_at);
+        log.info("Tweet Text = " + tweet.text);
+        log.info("Tweet Hashtags = " + tweet.entities.hashtags);
+        log.info("Tweet Id = " + tweet.id_str);
+        var tweetDataToUpload = {id_str: tweet.id_str, created_at:tweet.created_at, text:tweet.text, hashtags:tweet.entities.hashtags}
         recordParams = {
-          DeliveryStreamName: config.firehose.DeliveryStreamName,
-          Record: {
-            Data: JSON.stringify(tweet)+',\n'
-          }
-        };
-
-        log.info("Tweet = " + JSON.stringify(recordParams));
-
+            DeliveryStreamName: config.firehose.DeliveryStreamName,
+            Record: {
+              Data: JSON.stringify(tweetDataToUpload)+',\n'
+            }
+        }; 
 
         firehose.putRecord(recordParams, function(err, data) {
 
@@ -122,7 +124,7 @@ function twitterStreamProducer(firehose) {
             log.error(err);
           }
         });
-      } 
+      }  
 
      
     });

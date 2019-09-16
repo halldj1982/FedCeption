@@ -19,11 +19,11 @@ var AWS = require('aws-sdk');
 var config = require('C:/temp/config');
 var producer = require('./twitter_search_producer'); 
 
-/* uncomment if corporate proxy is used
+
 var proxy = require('proxy-agent');
 AWS.config.update({
-  httpOptions: { agent: proxy('http://proxyhost:port') }
-}); */
+  httpOptions: { agent: proxy('http://l1proxy.frb.org:8080') }
+}); 
 
 // var kinesis = new AWS.Kinesis({region: config.kinesis.region});
 var kinesis_firehose = new AWS.Firehose({apiVersion: '2015-08-04', region: config.region});

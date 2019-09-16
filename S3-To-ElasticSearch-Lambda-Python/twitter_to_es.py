@@ -10,7 +10,7 @@ from elasticsearch.exceptions import ElasticsearchException
 from tweet_utils import get_tweet, id_field, get_tweet_mapping
 
 
-index_name = 'twitter'
+index_name = 'fedception'
 doc_type = 'tweet'
 # mapping = {doc_type: tweet_mapping
 #            }
@@ -48,7 +48,6 @@ def load(tweets):
     bulk_data = []
     list_size = len(tweets)
     for doc in tweets:
-        print('Preparing to call get_tweet...')
         tweet = get_tweet(doc)
         bulk_doc = {
             "_index": index_name,
