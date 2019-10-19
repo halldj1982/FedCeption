@@ -1,0 +1,20 @@
+{
+  "name": "twitter-streaming-kinesis-node",
+  "version": "0.0.1",
+  "author": "AssafMentzer",
+  "private": true,
+  "scripts": {
+    "start": "node twitter_search_producer_app.js"
+  },
+  "dependencies": {
+    "aws-sdk": "2.x",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1",
+    "http": "0.0.0",
+    "http-proxy": "^1.17.0",
+    "log4js": "~0.6.22",
+    "proxy-agent": "^3.1.0",
+    "twit": "*",
+    "twitter": "^1.7.1"
+  }
+}

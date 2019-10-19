@@ -1,0 +1,51 @@
+{
+  "permissionsBoundary": {},
+  "roleName": "lambda_s3_read_write",
+  "policies": [
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "*"
+          }
+        ]
+      },
+      "name": "AmazonS3FullAccess",
+      "id": "ANPAIFIR6V6BVTRAHWINE",
+      "type": "managed",
+      "arn": "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+    },
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:us-east-1:354555210409:*"
+          },
+          {
+            "Effect": "Allow",
+            "Action": [
+              "logs:CreateLogStream",
+              "logs:PutLogEvents"
+            ],
+            "Resource": [
+              "arn:aws:logs:us-east-1:354555210409:log-group:/aws/lambda/s3-twitter-to-es-python:*"
+            ]
+          }
+        ]
+      },
+      "name": "AWSLambdaBasicExecutionRole-8a9b89ca-140c-4115-81d6-2c7489131199",
+      "id": "ANPAVFDJDFKUZDW4ICEOC",
+      "type": "managed",
+      "arn": "arn:aws:iam::354555210409:policy/service-role/AWSLambdaBasicExecutionRole-8a9b89ca-140c-4115-81d6-2c7489131199"
+    }
+  ],
+  "trustedEntities": [
+    "lambda.amazonaws.com"
+  ]
+}
