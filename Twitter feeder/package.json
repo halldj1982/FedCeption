@@ -9,6 +9,6 @@
   "dependencies": {
     "twit": "*",
     "aws-sdk": "2.x",
-    "log4js": "~0.6.22"
+    "log4js": "~6.4.0"
   }
 }
